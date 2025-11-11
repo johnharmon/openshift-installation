@@ -2,16 +2,16 @@
 kind: NMStateConfig
 metadata:
   labels:
-    infraenvs.agent-install.openshift.io: {{ $.Values.cluster }}
+    infraenvs.agent-install.openshift.io: {{ $.Values.clusterName }}
   name: {{ $host.name }}
-  namespace: {{ $.Values.cluster }}
+  namespace: {{ $.Values.clusterName }}
 spec:
   config:
     dns-resolver:
       config:
         server:
   {{- range $_, $dnsServer := $.Values.dnsServers }}
-          - $dnsServer
+          - {{ $dnsServer }}
   {{ end }}
     interfaces:
   {{- if ((index $.Values "useBond") | default true) }}
@@ -25,7 +25,9 @@ spec:
           mode: active-backup
           port:
     {{- range $idx, $interface := $host.interfaces }}
+      {{- if not (index $interface "disabled" | default false)
             - {{ (index $interface "name") | default (printf "%s%s" "eno" (toString (add1 $idx))) }}
+      {{ end }}
     {{ end }}
         mac-address: {{ index $host "primaryMac" | default $host.interfaces[0].macAddress }}
         name: bond0
@@ -54,7 +56,7 @@ spec:
   interfaces:
   {{- range $_, $interface := $host.interfaces }}
     - macAddress: {{ $interface.macAddress }}
-      name: {{ index $host "primaryMac" | default $host.interfaces[0].macAddress }}
+      name: {{ (index $interface "name") | default (printf "%s%s" "eno" (toString (add1 $idx))) }}
   {{ end }}
 {{ end }}
 

@@ -1,0 +1,20 @@
+# Example cluster config for the networking template
+clusterName: "test-cluster"
+machinePrefixLength: 25
+defaultGateway: <gatewayIP>
+dnsServers:
+  - <dnsIP1>
+  - <dnsIP2>
+  - <dnsIP3>
+hosts:
+  - name: host1
+    interfaces: 
+      - macAddress: <macAddress1>
+      - macAddress: <macAddress2>
+      - macAddress: <macAddress3>
+        name: "ens1f1p1"
+    useBond: true
+    primaryMac: <macAddress1>
+    IP: <hostIP>
+
+
