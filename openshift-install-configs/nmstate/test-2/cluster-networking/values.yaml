@@ -1,0 +1,29 @@
+# Example cluster config for the networking template
+clusterName: "test-cluster"
+machinePrefixLength: 25
+defaultGateway: <gateway-ip>
+dnsServers:
+  - <dnsIP1>
+  - <dnsIP2>
+  - <dnsIP3>
+hosts:
+  - name: host-1
+    interfaces: 
+      - macAddress: ""
+      - macAddress: ""
+      - macAddress: ""
+        name: "ens1f1p1"
+    primaryMac: ""
+    IP: <host-1-ip>
+   # ... #
+  - name: host-n
+    interfaces: 
+      - macAddress: '"string; regex_match: [A-z0-9]{2}(:[A-z0-9]{2}){5}"'
+      - macAddress: ""
+      - macAddress: ""
+        name: "ens2f1p2"
+    useBond: true
+    primaryMac: ""
+    IP: <host-n-ip>
+
+

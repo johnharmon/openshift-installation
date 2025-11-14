@@ -1,0 +1,110 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  annotations:
+    infraenv.agent-install.openshift.io/enable-ironic-agent: 'true'
+  resourceVersion: '187271858'
+  name: dcce-cle-oscp-bm-test-2
+  uid: f176b05b-e9f6-4b40-bfc1-d241cedfc408
+  creationTimestamp: '2025-11-12T19:09:35Z'
+  generation: 2
+  managedFields:
+    - apiVersion: agent-install.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:networkType': {}
+        'f:spec':
+          .: {}
+          'f:agentLabels':
+            .: {}
+            'f:agentBareMetal-generated-infraenv-ai-flow': {}
+          'f:clusterRef':
+            .: {}
+            'f:name': {}
+            'f:namespace': {}
+          'f:cpuArchitecture': {}
+          'f:ipxeScriptType': {}
+          'f:nmStateConfigLabelSelector': {}
+          'f:pullSecretRef': {}
+      manager: unknown
+      operation: Update
+      time: '2025-11-12T19:09:35Z'
+    - apiVersion: agent-install.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:infraenv.agent-install.openshift.io/enable-ironic-agent': {}
+          'f:finalizers':
+            .: {}
+            'v:"infraenv.agent-install.openshift.io/ai-deprovision"': {}
+      manager: assisted-service
+      operation: Update
+      time: '2025-11-12T19:12:46Z'
+    - apiVersion: agent-install.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:agentLabelSelector': {}
+          'f:bootArtifacts':
+            .: {}
+            'f:discoveryIgnitionURL': {}
+            'f:initrd': {}
+            'f:ipxeScript': {}
+            'f:kernel': {}
+            'f:rootfs': {}
+          'f:conditions': {}
+          'f:createdTime': {}
+          'f:debugInfo':
+            .: {}
+            'f:eventsURL': {}
+            'f:staticNetworkDownloadURL': {}
+          'f:isoDownloadURL': {}
+      manager: assisted-service
+      operation: Update
+      subresource: status
+      time: '2025-11-12T19:31:29Z'
+  namespace: dcce-cle-oscp-bm-test-2
+  finalizers:
+    - infraenv.agent-install.openshift.io/ai-deprovision
+  labels:
+    networkType: dhcp
+spec:
+  agentLabels:
+    agentBareMetal-generated-infraenv-ai-flow: dcce-cle-oscp-bm-test-2-dcce-cle-oscp-bm-test-2
+  clusterRef:
+    name: dcce-cle-oscp-bm-test-2
+    namespace: dcce-cle-oscp-bm-test-2
+  cpuArchitecture: x86_64
+  ipxeScriptType: DiscoveryImageAlways
+  nmStateConfigLabelSelector:
+    matchLabels:
+      infraenvs.agent-install.openshift.io: dcce-cle-oscp-bm-test-2
+  pullSecretRef:
+    name: pullsecret-cluster-dcce-cle-oscp-bm-test-2
+status:
+  agentLabelSelector:
+    matchLabels:
+      infraenvs.agent-install.openshift.io: dcce-cle-oscp-bm-test-2
+  bootArtifacts:
+    discoveryIgnitionURL: 'https://assisted-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/api/assisted-install/v2/infra-envs/e939512a-6bdc-4c5a-8f9e-8b66b399cf4d/downloads/files?api_key=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZyYV9lbnZfaWQiOiJlOTM5NTEyYS02YmRjLTRjNWEtOGY5ZS04YjY2YjM5OWNmNGQifQ.InrTyh0ql5r0mrRp_J8MUAgEt7NyZw6bYyRBOfkb9m3BjLHm6m5YhqrUPAU7eSr-uNd23WKf4kzXlH6KktMFBw&file_name=discovery.ign'
+    initrd: 'https://assisted-image-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/images/e939512a-6bdc-4c5a-8f9e-8b66b399cf4d/pxe-initrd?api_key=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZyYV9lbnZfaWQiOiJlOTM5NTEyYS02YmRjLTRjNWEtOGY5ZS04YjY2YjM5OWNmNGQifQ.xMKxhTDXhZM_5G5q3cvoW9yVvgCqrzKCE87d8PvCKWYBtXmDgZ_X1ksI-Tt91THCW-bd9svOj5Sp7JrWQkjuVQ&arch=x86_64&version=4.18'
+    ipxeScript: 'https://assisted-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/api/assisted-install/v2/infra-envs/e939512a-6bdc-4c5a-8f9e-8b66b399cf4d/downloads/files?api_key=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZyYV9lbnZfaWQiOiJlOTM5NTEyYS02YmRjLTRjNWEtOGY5ZS04YjY2YjM5OWNmNGQifQ.rNFcfSz9LeVi6ePxq3Yy1_fGPyV7u52XtCQLfxOE8JXv1H8BZqYNjyxE6yzWa-LOR-HdJy2cHmyw1TrHFVscLA&file_name=ipxe-script'
+    kernel: 'https://assisted-image-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/boot-artifacts/kernel?arch=x86_64&version=4.18'
+    rootfs: 'https://assisted-image-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/boot-artifacts/rootfs?arch=x86_64&version=4.18'
+  conditions:
+    - lastTransitionTime: '2025-11-12T19:09:36Z'
+      message: Image has been created
+      reason: ImageCreated
+      status: 'True'
+      type: ImageCreated
+  createdTime: '2025-11-12T19:31:29Z'
+  debugInfo:
+    eventsURL: 'https://assisted-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/api/assisted-install/v2/events?api_key=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZyYV9lbnZfaWQiOiJlOTM5NTEyYS02YmRjLTRjNWEtOGY5ZS04YjY2YjM5OWNmNGQifQ.j2zxD07BgxFAgvfxXJcx5iWuEYKsT_E0tdS1hdv4rMwHRaX_CDKxOc2V-TkmzSesjY4uEEJh-YBrP6zsVTZ7dg&infra_env_id=e939512a-6bdc-4c5a-8f9e-8b66b399cf4d'
+    staticNetworkDownloadURL: 'https://assisted-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/api/assisted-install/v2/infra-envs/e939512a-6bdc-4c5a-8f9e-8b66b399cf4d/downloads/files?api_key=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVyX2lkIjoiZTkzOTUxMmEtNmJkYy00YzVhLThmOWUtOGI2NmIzOTljZjRkIn0.sIyZhJwPGgzjon8V6CSKP8HBIaVG0q6mjGr-JCcaQr3_KSGRsATQ1sHMyZ_B9OUD-QfvGID8pZaZlwjLGCr5rw&file_name=static-network-config'
+  isoDownloadURL: 'https://assisted-image-service-multicluster-engine.apps.dcce-cle-oscp-1.va.gov/byapikey/eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZyYV9lbnZfaWQiOiJlOTM5NTEyYS02YmRjLTRjNWEtOGY5ZS04YjY2YjM5OWNmNGQifQ.t-AKOmz6UWjQN-Lqkgg5Mft9mfa4wgKW5-eXUY_aybH9Yqb2SZeSubrv8-syV_-mMrlc1mEV_r3wpFLLjrihAg/4.18/x86_64/minimal.iso'

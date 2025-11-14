@@ -1,0 +1,179 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    baremetalhost.metal3.io/detached: assisted-service-controller
+    baremetalhost.metal3.io/paused: assisted-service-controller
+    baremetalhost.metal3.io/status: '{"operationalStatus":"detached","lastUpdated":"2025-11-12T19:53:41Z","hardwareProfile":"unknown","provisioning":{"state":"provisioned","ID":"ef647fe4-d1ae-4151-9281-ddb5da80e73b","image":{"url":""},"rootDeviceHints":{"deviceName":"/dev/sda"},"bootMode":"UEFI","customDeploy":{"method":"start_assisted_install"}},"goodCredentials":{"credentials":{"name":"bmc-vaclevsh1211-pbjkg","namespace":"dcce-cle-oscp-bm-test-2"},"credentialsVersion":"187271513"},"triedCredentials":{"credentials":{"name":"bmc-vaclevsh1211-pbjkg","namespace":"dcce-cle-oscp-bm-test-2"},"credentialsVersion":"187271513"},"errorMessage":"","poweredOn":false,"operationHistory":{"register":{"start":"2025-11-12T19:31:15Z","end":"2025-11-12T19:31:25Z"},"inspect":{"start":null,"end":null},"provision":{"start":"2025-11-12T19:31:25Z","end":"2025-11-12T19:53:41Z"},"deprovision":{"start":null,"end":null}},"errorCount":0}'
+    bmac.agent-install.openshift.io/hostname: vaclevsh1211
+    bmac.agent-install.openshift.io/ignition-config-overrides: "{\n\t\"ignition\": {\n\t  \"version\": \"3.1.0\",\n\t  \"security\": {\n\t\t\"tls\": {\n\t\t  \"certificateAuthorities\": [{\n\t\t\t\"source\": \"data:text/plain;charset=utf-8;base64,LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lJQTIwOSt1SWtTajR3RFFZSktvWklodmNOQVFFTEJRQXdKakVTTUJBR0ExVUUKQ3hNSmIzQmxibk5vYVdaME1SQXdEZ1lEVlFRREV3ZHliMjkwTFdOaE1CNFhEVEkxTVRFeE1qRTVORGd3TjFvWApEVE0xTVRFeE1ERTVORGd3TjFvd0pqRVNNQkFHQTFVRUN4TUpiM0JsYm5Ob2FXWjBNUkF3RGdZRFZRUURFd2R5CmIyOTBMV05oTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFxNXJLaGltVlFOS1UKUTVmMEhzUk5rODMxTUczZkdwQytLdjFiUHV4VU5yWGRlQmtsNkM4aVpOTnZxTmttaW10UDlBV2NiMHJBMTQ5UgpqT3BRMzNCeVJBbldlWlNCYkhIZ3NDbHBhMXVzcGJ4cVJEQWMvQm9UbWNaNWI4Z2trNjRhR0NJN3hSRENzSXg5CjhVWGhGUmRxTkJhZFJ1V0RwSEJtTjd5WGlhOWdyWTZCLy9mYkd4N2JJUy9JNDNtUE9SM25nVzRpM2JrUVV5UloKSE5VeXNQdHBvbm1NQW9IVm5vWVRxcUM5VU52WDZDa3gwZHlLTStScjhKbEpaandHNUtIK2dRRXlidjUrMDNXdQprWDgrK1JORHdYZEJEdzU5aUNwZ3l1OVBpOHM1WW92QXQ4a2hwQlc2VmpBNHdVSHpXS0FIZ3Z6WkI3QXRQU2N6CkVORzMxcWIvalFJREFRQUJvMEl3UURBT0JnTlZIUThCQWY4RUJBTUNBcVF3RHdZRFZSMFRBUUgvQkFVd0F3RUIKL3pBZEJnTlZIUTRFRmdRVTRYTW9LNGhTRm9EbTFkYTlzZ1UvRWg3ZnBma3dEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUNvNHhWZ0srdmVYM1g3Mk9FZG9yNXN4bXBMS3B1Q0phenZnTkNHSWxQbUJHRXNTN2lBNU9rd2ZVbElYClI2dXRkd0RJSWVLbW5CeDNPd1ZQNkpkNERWWHJoYVVNdzhYVnlEVDdKUDc5TDcrMVcwMDZ4Rkt5d3lURFR2N1AKbkdGZGFBakMyQnZWSnoxQ1RqY2w5ajQwMURvRGwza3BTaFppbCtsVndnUzJodFV0dXE3RWM4d2twRlRCOW9oWApERnlEeSsvTEZUdlJvODlvRjhoZXo5TWJsWW10Wnp4US9LTWdmOFFJdWpvODdvL1pLeEI3OGlVVGFYV3RhdkdCCjRjU2NKazNXYUEwQUpMd204UVVKZ3dSUnVqc1QxSU9Tc2pjVThYcldEQVd1c1U3a09wOXlJdzIxczhhYUR6bG4KeFdZMHAyUEc0UUI0T29PWUpZTHRQL3h0REs4PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\"\n\t\t  }]\n\t\t}\n\t  }\n\t}\n  }"
+    inspect.metal3.io: disabled
+  resourceVersion: '187345521'
+  name: vaclevsh1211
+  uid: c6b4c4ce-ded8-4283-b19c-ccefdab7c2c0
+  creationTimestamp: '2025-11-12T19:31:15Z'
+  generation: 3
+  managedFields:
+    - apiVersion: metal3.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"baremetalhost.metal3.io"': {}
+      manager: baremetal-operator
+      operation: Update
+      time: '2025-11-12T19:31:15Z'
+    - apiVersion: metal3.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:bmac.agent-install.openshift.io/hostname': {}
+            'f:inspect.metal3.io': {}
+          'f:labels':
+            .: {}
+            'f:infraenvs.agent-install.openshift.io': {}
+        'f:spec':
+          .: {}
+          'f:automatedCleaningMode': {}
+          'f:bmc':
+            .: {}
+            'f:address': {}
+            'f:credentialsName': {}
+            'f:disableCertificateVerification': {}
+          'f:bootMACAddress': {}
+          'f:online': {}
+      manager: unknown
+      operation: Update
+      time: '2025-11-12T19:31:15Z'
+    - apiVersion: metal3.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:provisioning':
+            .: {}
+            'f:ID': {}
+            'f:bootMode': {}
+            'f:customDeploy':
+              .: {}
+              'f:method': {}
+            'f:image':
+              .: {}
+              'f:url': {}
+            'f:rootDeviceHints':
+              .: {}
+              'f:deviceName': {}
+            'f:state': {}
+          'f:operationHistory':
+            .: {}
+            'f:deprovision':
+              .: {}
+              'f:end': {}
+              'f:start': {}
+            'f:inspect':
+              .: {}
+              'f:end': {}
+              'f:start': {}
+            'f:provision':
+              .: {}
+              'f:end': {}
+              'f:start': {}
+            'f:register':
+              .: {}
+              'f:end': {}
+              'f:start': {}
+          'f:triedCredentials':
+            .: {}
+            'f:credentials': {}
+            'f:credentialsVersion': {}
+          'f:goodCredentials':
+            .: {}
+            'f:credentials': {}
+            'f:credentialsVersion': {}
+          'f:hardwareProfile': {}
+          .: {}
+          'f:poweredOn': {}
+          'f:operationalStatus': {}
+          'f:lastUpdated': {}
+          'f:errorMessage': {}
+          'f:errorCount': {}
+      manager: baremetal-operator
+      operation: Update
+      subresource: status
+      time: '2025-11-12T19:53:41Z'
+    - apiVersion: metal3.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:baremetalhost.metal3.io/detached': {}
+            'f:baremetalhost.metal3.io/paused': {}
+            'f:baremetalhost.metal3.io/status': {}
+            'f:bmac.agent-install.openshift.io/ignition-config-overrides': {}
+          'f:finalizers':
+            'v:"bmac.agent-install.openshift.io/deprovision"': {}
+        'f:spec':
+          'f:customDeploy':
+            .: {}
+            'f:method': {}
+      manager: assisted-service
+      operation: Update
+      time: '2025-11-12T20:24:24Z'
+  namespace: dcce-cle-oscp-bm-test-2
+  finalizers:
+    - baremetalhost.metal3.io
+    - bmac.agent-install.openshift.io/deprovision
+  labels:
+    infraenvs.agent-install.openshift.io: dcce-cle-oscp-bm-test-2
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: 'idrac-virtualmedia://10.84.40.209/redfish/v1/Systems/System.Embedded.1'
+    credentialsName: bmc-vaclevsh1211-pbjkg
+    disableCertificateVerification: true
+  bootMACAddress: '34:80:0D:B1:EB:F2'
+  customDeploy:
+    method: start_assisted_install
+  online: true
+status:
+  hardwareProfile: unknown
+  poweredOn: false
+  operationalStatus: detached
+  lastUpdated: '2025-11-12T19:53:41Z'
+  errorCount: 0
+  operationHistory:
+    deprovision:
+      end: null
+      start: null
+    inspect:
+      end: null
+      start: null
+    provision:
+      end: '2025-11-12T19:53:41Z'
+      start: '2025-11-12T19:31:25Z'
+    register:
+      end: '2025-11-12T19:31:25Z'
+      start: '2025-11-12T19:31:15Z'
+  provisioning:
+    ID: ef647fe4-d1ae-4151-9281-ddb5da80e73b
+    bootMode: UEFI
+    customDeploy:
+      method: start_assisted_install
+    image:
+      url: ''
+    rootDeviceHints:
+      deviceName: /dev/sda
+    state: provisioned
+  triedCredentials:
+    credentials:
+      name: bmc-vaclevsh1211-pbjkg
+      namespace: dcce-cle-oscp-bm-test-2
+    credentialsVersion: '187271513'
+  errorMessage: ''
+  goodCredentials:
+    credentials:
+      name: bmc-vaclevsh1211-pbjkg
+      namespace: dcce-cle-oscp-bm-test-2
+    credentialsVersion: '187271513'

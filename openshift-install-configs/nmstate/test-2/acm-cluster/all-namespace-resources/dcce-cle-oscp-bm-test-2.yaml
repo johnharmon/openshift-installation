@@ -1,0 +1,855 @@
+NAME                       DATA   AGE
+hive-trusted-cabundle      1      44h
+kube-root-ca.crt           1      44h
+openshift-service-ca.crt   1      44h
+LAST SEEN   TYPE     REASON      OBJECT                                   MESSAGE
+75m         Normal   Importing   managedcluster/dcce-cle-oscp-bm-test-2   The dcce-cle-oscp-bm-test-2 is currently being imported. Importing resources are applied, wait for resources be available
+75m         Normal   Imported    managedcluster/dcce-cle-oscp-bm-test-2   The dcce-cle-oscp-bm-test-2 has successfully imported
+NAME                                         TYPE                             DATA   AGE
+application-manager                          Opaque                           2      43h
+bmc-vaclevsh1211-pbjkg                       Opaque                           2      44h
+bmc-vaclevsh1212-ldzk9                       Opaque                           2      44h
+bmc-vaclevsh1213-lscdr                       Opaque                           2      44h
+dcce-cle-oscp-bm-test-2-admin-kubeconfig     Opaque                           2      43h
+dcce-cle-oscp-bm-test-2-admin-password       Opaque                           2      43h
+dcce-cle-oscp-bm-test-2-import               Opaque                           4      44h
+dcce-cle-oscp-bm-test-2-merged-pull-secret   kubernetes.io/dockerconfigjson   1      44h
+dynatrace-bootstrapper-certs                 Opaque                           1      44h
+dynatrace-bootstrapper-config                Opaque                           3      44h
+klusterlet-addon-workmgr-log                 Opaque                           2      43h
+pullsecret-cluster-dcce-cle-oscp-bm-test-2   kubernetes.io/dockerconfigjson   1      44h
+NAME                                   SECRETS   AGE
+builder                                0         44h
+dcce-cle-oscp-bm-test-2-bootstrap-sa   0         44h
+default                                0         44h
+deployer                               0         44h
+NAME                          AVAILABLE   DEGRADED   PROGRESSING
+application-manager           True                   False
+cert-policy-controller        True                   False
+cluster-proxy                 True                   False
+config-policy-controller      True                   False
+governance-policy-framework   True                   False
+managed-serviceaccount        True                   False
+observability-controller      True                   False
+search-collector              True                   False
+work-manager                  True                   False
+NAME                                   CLUSTER                   APPROVED   ROLE     STAGE
+787e7bd3-295a-e7a2-73cd-87d4bf1d0f3f   dcce-cle-oscp-bm-test-2   true       master   Done
+bbc7822f-4e59-0d62-9924-75a8141d1b64   dcce-cle-oscp-bm-test-2   true       master   Done
+bf452b47-ebcb-f823-39a6-027907432428   dcce-cle-oscp-bm-test-2   true       master   Done
+NAME                      ISO CREATED AT
+dcce-cle-oscp-bm-test-2   2025-11-12T19:31:29Z
+NAME           AGE
+vaclevsh1211   44h
+vaclevsh1212   44h
+vaclevsh1213   44h
+NAME                      AGE
+dcce-cle-oscp-bm-test-2   44h
+NAME                           AGE
+application-manager            43h
+klusterlet-addon-workmgr-log   44h
+NAME                                                                          ROLE                                                    USERS                                                                                                                         GROUPS                                                                                                          SERVICE ACCOUNTS   USERS
+admin                                                                         /admin                                                  Emmanuel.Naweji@VA.GOV                                                                                                                                                                                                                                           
+cluster-proxy-addon-agent                                                     dcce-cle-oscp-bm-test-2/cluster-proxy-addon-agent                                                                                                                                     open-cluster-management:cluster-proxy                                                                                              
+endpoint-observability-res-rolebinding                                        /endpoint-observability-res-role                                                                                                                                                      system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:observability-controller                                      
+managed-cluster-workmgr                                                       /managed-cluster-workmgr                                                                                                                                                              system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:work-manager                                                  
+open-cluster-management:addons:application-manager                            /open-cluster-management:addons:application-manager                                                                                                                                   system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:application-manager                                           
+open-cluster-management:addons:search-collector                               /open-cluster-management:addons:search-collector                                                                                                                                      system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:search-collector                                              
+open-cluster-management:cert-policy-controller-hub                            /open-cluster-management:cert-policy-controller-hub                                                                                                                                   system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:cert-policy-controller                                        
+open-cluster-management:config-policy-controller-hub                          /open-cluster-management:config-policy-controller-hub                                                                                                                                 system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:config-policy-controller                                      
+open-cluster-management:managed-serviceaccount:clusterrole:agent              /managed-serviceaccount-addon-agent                                                                                                                                                   system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:managed-serviceaccount                                        
+open-cluster-management:managedcluster:dcce-cle-oscp-bm-test-2:registration   /open-cluster-management:managedcluster:registration                                                                                                                                  system:open-cluster-management:dcce-cle-oscp-bm-test-2, open-cluster-management:dcce-cle-oscp-bm-test-2                            
+open-cluster-management:managedcluster:dcce-cle-oscp-bm-test-2:work           /open-cluster-management:managedcluster:work                                                                                                                                          system:open-cluster-management:dcce-cle-oscp-bm-test-2, open-cluster-management:dcce-cle-oscp-bm-test-2                            
+open-cluster-management:managedclusterset:admin                               /admin                                                  matthew.blair1@va.gov, Michael.Johnstone@va.gov, Matthew.Fuqua@va.gov, Spencer.Hall3@va.gov, Michael.Fasci@va.gov (19 more)   oitauss_virt_ocp_admin_cle-oscp-clstr                                                                                              
+open-cluster-management:managedclusterset:view                                /view                                                   Larry.Gravatt@VA.GOV, clement.anim@va.gov, Michael.Johnstone@va.gov, John.Millard@va.gov, Oluyomi.Sunmonu@va.gov (19 more)    oitauss_virt_ocp_admin_cle-oscp-clstr, oitaussdcceocpreadclevirtclstr, oitauss_virt_ocp_viewer_cle-oscp-clstr                      
+open-cluster-management:policy-framework-hub                                  /open-cluster-management:policy-framework-hub                                                                                                                                         system:open-cluster-management:cluster:dcce-cle-oscp-bm-test-2:addon:governance-policy-framework                                   
+system:deployers                                                              /system:deployer                                                                                                                                                                                                                                                                                      deployer           
+system:image-builders                                                         /system:image-builder                                                                                                                                                                                                                                                                                 builder            
+NAME
+cluster-proxy-addon-agent
+NAME                    HOLDER                  AGE
+managed-cluster-lease   managed-cluster-lease   44h
+LAST SEEN   TYPE     REASON      OBJECT                                   MESSAGE
+75m         Normal   Importing   managedcluster/dcce-cle-oscp-bm-test-2   The dcce-cle-oscp-bm-test-2 is currently being imported. Importing resources are applied, wait for resources be available
+75m         Normal   Imported    managedcluster/dcce-cle-oscp-bm-test-2   The dcce-cle-oscp-bm-test-2 has successfully imported
+NAME                      CLUSTER                   STATE
+dcce-cle-oscp-bm-test-2   dcce-cle-oscp-bm-test-2   adding-hosts
+NAME                      INFRAID                                PLATFORM          REGION   VERSION   CLUSTERTYPE   PROVISIONSTATUS   POWERSTATE   AGE
+dcce-cle-oscp-bm-test-2   ca850607-74b7-48a9-bde5-a516b490f47b   agent-baremetal            4.18.27                 Provisioned       Running      44h
+NAME                      AGE
+dcce-cle-oscp-bm-test-2   43h
+NAME                      AGE
+dcce-cle-oscp-bm-test-2   43h
+NAME                      STATUS    CONTROLLERREPLICA
+dcce-cle-oscp-bm-test-2   Success   0
+NAME                      AGE
+dcce-cle-oscp-bm-test-2   44h
+NAME           STATE         CONSUMER   ONLINE   ERROR   AGE
+vaclevsh1211   provisioned              true             44h
+vaclevsh1212   provisioned              true             44h
+vaclevsh1213   provisioned              true             44h
+NAME              AGE
+schema-37ab9fc5   44h
+schema-af44780c   44h
+NAME           AGE
+vaclevsh1211   44h
+vaclevsh1212   44h
+vaclevsh1213   44h
+NAME           AGE
+vaclevsh1211   44h
+vaclevsh1212   44h
+vaclevsh1213   44h
+NAME           READY   REASON
+vaclevsh1211   True    ImageCreated
+vaclevsh1212   True    ImageCreated
+vaclevsh1213   True    ImageCreated
+NAME                  AGE
+observability-addon   43h
+NAME                                    DISPLAY                    VERSION               REPLACES                                PHASE
+compliance-operator.v1.7.1              Compliance Operator        1.7.1                 compliance-operator.v1.7.0              Succeeded
+devworkspace-operator.v0.37.0           DevWorkspace Operator      0.37.0                devworkspace-operator.v0.36.0           Succeeded
+metallb-operator.v4.18.0-202510210939   MetalLB Operator           4.18.0-202510210939   metallb-operator.v4.18.0-202509240837   Succeeded
+openshift-gitops-operator.v1.18.1       Red Hat OpenShift GitOps   1.18.1                openshift-gitops-operator.v1.18.0       Succeeded
+trident-operator.v25.6.2                NetApp Trident             25.6.2                trident-operator.v25.6.1                Succeeded
+web-terminal.v1.13.0                    Web Terminal               1.13.0                web-terminal.v1.12.1-0.1745393748.p     Succeeded
+NAME                                                  CATALOG               AGE
+keysight-wap-db                                       Certified Operators   176d
+eventing-kogito                                       Community Operators   176d
+customized-user-remediation                           Community Operators   176d
+rhacs-operator                                        Red Hat Operators     176d
+keysight-load-core                                    Certified Operators   176d
+cloudbees-ci                                          Certified Operators   176d
+ibm-application-gateway-operator                      Certified Operators   176d
+infrastructure-asset-orchestrator-certified           Certified Operators   176d
+openshiftartifactoryha-operator                       Certified Operators   176d
+marketplace-games-operator                            Certified Operators   176d
+aiu-operator                                          Certified Operators   176d
+dynatrace-operator-rhmp                               Red Hat Marketplace   176d
+ndmspc-operator                                       Community Operators   176d
+ack-mq-controller                                     Community Operators   176d
+ack-keyspaces-controller                              Community Operators   176d
+ack-secretsmanager-controller                         Community Operators   176d
+assisted-service-operator                             Community Operators   176d
+l5-operator                                           Community Operators   176d
+openshift-builds-operator                             Red Hat Operators     176d
+kubecost-operator                                     Certified Operators   176d
+rbln-npu-operator                                     Certified Operators   176d
+ack-sfn-controller                                    Community Operators   176d
+aws-load-balancer-operator                            Red Hat Operators     176d
+infoscale-licensing-operator                          Certified Operators   176d
+netai-demo-operator                                   Certified Operators   176d
+jws-operator                                          Red Hat Operators     176d
+openshift-pipelines-operator-rh                       Red Hat Operators     176d
+keysight-wap-migration                                Certified Operators   176d
+tvo-operator                                          Certified Operators   176d
+anzograph-operator                                    Certified Operators   176d
+aws-efs-operator                                      Community Operators   176d
+nfs-provisioner-operator                              Community Operators   176d
+security-profiles-operator                            Red Hat Operators     176d
+lifecycle-agent                                       Red Hat Operators     176d
+xspc-operator                                         Certified Operators   176d
+falcon-operator                                       Certified Operators   176d
+etcd                                                  Community Operators   176d
+ack-ec2-controller                                    Community Operators   176d
+cass-operator-community                               Community Operators   176d
+ecr-secret-operator                                   Community Operators   176d
+function-mesh                                         Certified Operators   176d
+iomesh-operator                                       Certified Operators   176d
+model-builder-for-vision-certified-rhmp               Red Hat Marketplace   176d
+mariadb-operator                                      Community Operators   176d
+aws-efs-csi-driver-operator                           Red Hat Operators     176d
+instana-agent-operator-rhmp                           Red Hat Marketplace   176d
+coherence-operator                                    Community Operators   176d
+authorino-operator                                    Community Operators   176d
+service-telemetry-operator                            Red Hat Operators     176d
+amq-online                                            Red Hat Operators     176d
+odf-operator                                          Red Hat Operators     176d
+rhods-operator                                        Red Hat Operators     176d
+jaeger                                                Community Operators   176d
+cluster-kube-descheduler-operator                     Red Hat Operators     176d
+app-insights-operator                                 Certified Operators   176d
+microcks                                              Community Operators   176d
+ack-firehose-controller                               Community Operators   176d
+ccm-node-agent-dcap-operator                          Certified Operators   176d
+group-sync-operator                                   Community Operators   176d
+fossul-operator                                       Community Operators   176d
+yaks                                                  Community Operators   176d
+node-healthcheck-operator                             Community Operators   176d
+external-secrets-operator                             Community Operators   176d
+mtr-operator                                          Red Hat Operators     176d
+local-storage-operator                                Red Hat Operators     176d
+kubeblocks                                            Certified Operators   176d
+dynatrace-operator                                    Certified Operators   176d
+abinitio-runtime-operator                             Certified Operators   176d
+percona-postgresql-operator-certified-rhmp            Red Hat Marketplace   176d
+ack-ram-controller                                    Community Operators   176d
+lib-bucket-provisioner                                Community Operators   176d
+community-trivy-operator                              Community Operators   176d
+ack-kms-controller                                    Community Operators   176d
+awss3-operator-registry                               Community Operators   176d
+ack-elbv2-controller                                  Community Operators   176d
+observability-operator                                Community Operators   176d
+global-load-balancer-operator                         Community Operators   176d
+odf-dependencies                                      Red Hat Operators     176d
+rook-ceph-operator                                    Red Hat Operators     176d
+ibm-block-csi-operator-community                      Community Operators   176d
+openebs                                               Community Operators   176d
+sigstore-helm-operator                                Community Operators   176d
+anchore-engine                                        Certified Operators   176d
+netapp-spark-operator                                 Certified Operators   176d
+dbaas-operator                                        Community Operators   176d
+ovms-operator                                         Certified Operators   176d
+vault-secrets-operator                                Certified Operators   176d
+apicast-community-operator                            Community Operators   176d
+rhbk-operator                                         Red Hat Operators     176d
+stackable-zookeeper-operator                          Certified Operators   176d
+infoscale-dr-manager                                  Certified Operators   176d
+gpu-operator-certified                                Certified Operators   176d
+ack-organizations-controller                          Community Operators   176d
+koku-metrics-operator                                 Community Operators   176d
+opentelemetry-product                                 Red Hat Operators     176d
+victoriametrics-operator                              Certified Operators   176d
+neuvector-certified-operator                          Certified Operators   176d
+oci-ccm-operator                                      Community Operators   176d
+postgresql                                            Community Operators   176d
+harness-gitops-operator                               Certified Operators   176d
+stackable-kafka-operator                              Certified Operators   176d
+ibm-odlm                                              Certified Operators   176d
+f5-bigip-ctlr-operator                                Certified Operators   176d
+appdynamics-operator                                  Certified Operators   176d
+percona-server-mongodb-operator-certified-rhmp        Red Hat Marketplace   176d
+cloudbees-ci-rhmp                                     Red Hat Marketplace   176d
+cluster-logging                                       Red Hat Operators     176d
+dxoperator                                            Certified Operators   176d
+zabbix-operator-certified-rhmp                        Red Hat Marketplace   176d
+percona-xtradb-cluster-operator-certified-rhmp        Red Hat Marketplace   176d
+aerospike-kubernetes-operator-rhmp                    Red Hat Marketplace   176d
+skupper-operator                                      Community Operators   176d
+operator-aims-mobile                                  Certified Operators   176d
+accuknox-operator-certified                           Certified Operators   176d
+ibm-iam-operator                                      Certified Operators   176d
+abot-operator-rhmp                                    Red Hat Marketplace   176d
+anzograph-operator-rhmp                               Red Hat Marketplace   176d
+hawtio-operator                                       Community Operators   176d
+dapr-kubernetes-operator                              Community Operators   176d
+ack-iam-controller                                    Community Operators   176d
+mercury-operator                                      Community Operators   176d
+amq7-interconnect-operator                            Red Hat Operators     176d
+bamoe-businessautomation-operator                     Red Hat Operators     176d
+compliance-operator                                   Red Hat Operators     176d
+gatekeeper-operator-product                           Red Hat Operators     176d
+couchbase-enterprise-certified                        Certified Operators   176d
+exascaler-csi-driver-operator                         Certified Operators   176d
+fujitsu-enterprise-postgres-operator                  Certified Operators   176d
+automotive-infra                                      Community Operators   176d
+openshift-nfd-operator                                Community Operators   176d
+limitador-operator                                    Community Operators   176d
+cephcsi-operator                                      Red Hat Operators     176d
+joget-dx8-operator                                    Certified Operators   176d
+stackable-airflow-operator                            Certified Operators   176d
+kuadrant-operator                                     Community Operators   176d
+logic-operator-rhel8                                  Red Hat Operators     176d
+stackable-listener-operator                           Certified Operators   176d
+cilium                                                Certified Operators   176d
+clusterpulse                                          Community Operators   176d
+zabbix-operator-certified                             Certified Operators   176d
+cloudera-streams-messaging-kubernetes-operator        Certified Operators   176d
+neuvector-certified-operator-rhmp                     Red Hat Marketplace   176d
+stolostron                                            Community Operators   176d
+eap                                                   Red Hat Operators     176d
+metallb-operator                                      Red Hat Operators     176d
+mta-operator                                          Red Hat Operators     176d
+t8c-tsc-client-certified                              Certified Operators   176d
+keysight-wap-notifications                            Certified Operators   176d
+model-builder-for-vision-certified                    Certified Operators   176d
+nvidia-maintenance-operator                           Certified Operators   176d
+starburst-enterprise-helm-operator-rhmp               Red Hat Marketplace   176d
+sosivio                                               Community Operators   176d
+ack-bedrockagent-controller                           Community Operators   176d
+tempo-operator                                        Community Operators   176d
+t8c-certified                                         Certified Operators   176d
+ack-elasticache-controller                            Community Operators   176d
+stolostron-engine                                     Community Operators   176d
+keysight-nats-operator                                Certified Operators   176d
+cluster-aas-operator                                  Community Operators   176d
+airflow-helm-operator                                 Community Operators   176d
+ack-kafka-controller                                  Community Operators   176d
+openshift-secondary-scheduler-operator                Red Hat Operators     176d
+run-once-duration-override-operator                   Red Hat Operators     176d
+quay-operator                                         Red Hat Operators     176d
+timemachine-operator                                  Certified Operators   176d
+nexus-operator                                        Community Operators   176d
+ack-dynamodb-controller                               Community Operators   176d
+annotationlab                                         Community Operators   176d
+devopsinabox                                          Community Operators   176d
+keysight-ati-updates                                  Certified Operators   176d
+kubemq-operator-marketplace-rhmp                      Red Hat Marketplace   176d
+snyk-operator                                         Community Operators   176d
+kaoto-operator                                        Community Operators   176d
+stackable-trino-operator                              Certified Operators   176d
+stackable-hdfs-operator                               Certified Operators   176d
+memcached-operator-ogaye                              Certified Operators   176d
+kubearmor-operator-certified                          Certified Operators   176d
+cli-manager                                           Red Hat Operators     176d
+fuse-console                                          Red Hat Operators     176d
+aci-containers-operator                               Certified Operators   176d
+ack-efs-controller                                    Community Operators   176d
+cluster-manager                                       Community Operators   176d
+smart-gateway-operator                                Red Hat Operators     176d
+cryostat-operator                                     Red Hat Operators     176d
+secrets-store-csi-driver-operator                     Red Hat Operators     176d
+limitador-operator                                    Red Hat Operators     176d
+fuse-apicurito                                        Red Hat Operators     176d
+hpe-ezmeral-csi-operator                              Certified Operators   176d
+appdynamics-cloud-operator                            Certified Operators   176d
+lbconfig-operator                                     Community Operators   176d
+ack-acmpca-controller                                 Community Operators   176d
+pulp-operator                                         Community Operators   176d
+dns-operator                                          Red Hat Operators     176d
+fuse-online                                           Red Hat Operators     176d
+sriov-fec                                             Certified Operators   176d
+timemachine-operator-rhmp                             Red Hat Marketplace   176d
+apimatic-kubernetes-operator                          Community Operators   176d
+pelorus-operator                                      Community Operators   176d
+proactive-node-scaling-operator                       Community Operators   176d
+rhpam-kogito-operator                                 Red Hat Operators     176d
+apicurio-registry-3                                   Red Hat Operators     176d
+kernel-module-management                              Red Hat Operators     176d
+clife                                                 Certified Operators   176d
+ipm-controller                                        Certified Operators   176d
+pachyderm-operator                                    Certified Operators   176d
+ack-cloudwatch-controller                             Community Operators   176d
+grafana-operator                                      Community Operators   176d
+windows-machine-config-operator                       Red Hat Operators     176d
+smb-csi-driver-operator                               Red Hat Operators     176d
+3scale-operator                                       Red Hat Operators     176d
+topology-aware-lifecycle-manager                      Red Hat Operators     176d
+percona-server-mongodb-operator                       Community Operators   176d
+keysight-kcos-ingress                                 Certified Operators   176d
+runtime-component-operator-certified                  Certified Operators   176d
+datadog-operator-certified-rhmp                       Red Hat Marketplace   176d
+flink-kubernetes-operator                             Community Operators   176d
+ack-ecs-controller                                    Community Operators   176d
+oadp-operator                                         Community Operators   176d
+keepalived-operator                                   Community Operators   176d
+jaeger-product                                        Red Hat Operators     176d
+advanced-cluster-management                           Red Hat Operators     176d
+apicast-operator                                      Red Hat Operators     176d
+alloy                                                 Certified Operators   176d
+kubernetes-imagepuller-operator                       Community Operators   176d
+patch-operator                                        Community Operators   176d
+ack-lambda-controller                                 Community Operators   176d
+ack-glue-controller                                   Community Operators   176d
+gcp-filestore-csi-driver-operator                     Red Hat Operators     176d
+rhsso-operator                                        Red Hat Operators     176d
+amq-broker-rhel8                                      Red Hat Operators     176d
+susql-operator                                        Community Operators   176d
+ack-athena-controller                                 Community Operators   176d
+minio-volume-manager-operator                         Certified Operators   176d
+socmmd                                                Community Operators   176d
+aic-operator                                          Certified Operators   176d
+marketplace-games-operator-rhmp                       Red Hat Marketplace   176d
+percona-xtradb-cluster-operator                       Community Operators   176d
+argocd-operator                                       Community Operators   176d
+sap-data-intelligence-observer-operator               Community Operators   176d
+hedvig-operator                                       Community Operators   176d
+rh-service-binding-operator                           Red Hat Operators     176d
+flux                                                  Red Hat Marketplace   176d
+linstor-operator-rhmp                                 Red Hat Marketplace   176d
+ack-ssm-controller                                    Community Operators   176d
+ibm-license-service-reporter-operator                 Certified Operators   176d
+ibm-common-service-operator                           Certified Operators   176d
+joget-dx8-openshift-operator                          Certified Operators   176d
+ibm-cpd-wspipelines                                   Certified Operators   176d
+nspc-operator                                         Certified Operators   176d
+netscaler-operator                                    Certified Operators   176d
+spark-helm-operator                                   Community Operators   176d
+eclipse-che                                           Community Operators   176d
+horreum-operator                                      Community Operators   176d
+cluster-observability-operator                        Red Hat Operators     176d
+amq-streams-console                                   Red Hat Operators     176d
+openshift-gitops-operator                             Red Hat Operators     176d
+runtime-fabric-operator                               Certified Operators   176d
+stackable-opa-operator                                Certified Operators   176d
+beegfs-csi-driver-operator                            Community Operators   176d
+devspaces                                             Red Hat Operators     176d
+keysight-kcos-licensing                               Certified Operators   176d
+webotx-operator                                       Certified Operators   176d
+spyre-operator                                        Certified Operators   176d
+orchestrator-operator                                 Red Hat Operators     176d
+devworkspace-operator                                 Red Hat Operators     176d
+lightspeed-operator                                   Red Hat Operators     176d
+kernel-module-management-hub                          Red Hat Operators     176d
+uma-operator                                          Certified Operators   176d
+keysight-websocket-service                            Certified Operators   176d
+cloud-native-postgresql                               Certified Operators   176d
+ack-cloudwatchlogs-controller                         Community Operators   176d
+ack-eventbridge-controller                            Community Operators   176d
+cockroachdb                                           Community Operators   176d
+dell-csm-operator-certified                           Certified Operators   176d
+kubecost                                              Community Operators   176d
+t8c                                                   Community Operators   176d
+stackable-secret-operator                             Certified Operators   176d
+digitalai-release-operator                            Certified Operators   176d
+sap-hana-express-operator                             Community Operators   176d
+openshift-node-upgrade-mutex-operator                 Community Operators   176d
+machine-deletion-remediation                          Red Hat Operators     176d
+trident-operator                                      Certified Operators   176d
+joget-dx8-operator-rhmp                               Red Hat Marketplace   176d
+visionone-containersecurity                           Community Operators   176d
+intel-device-plugins-operator                         Certified Operators   176d
+ack-recyclebin-controller                             Community Operators   176d
+integrity-shield-operator                             Community Operators   176d
+odf-multicluster-orchestrator                         Red Hat Operators     176d
+rhdh                                                  Red Hat Operators     176d
+sumologic-kubernetes-collection-helm-operator         Certified Operators   176d
+nutanixcsioperator                                    Certified Operators   176d
+kubeturbo-certified-rhmp                              Red Hat Marketplace   176d
+ocm-operator                                          Community Operators   176d
+policy-controller-operator                            Red Hat Operators     176d
+authorino-operator                                    Red Hat Operators     176d
+amd-gpu-operator                                      Certified Operators   176d
+hibernation-operator                                  Certified Operators   176d
+machine-deletion-remediation                          Community Operators   176d
+snapscheduler                                         Community Operators   176d
+eclipse-amlen-operator                                Community Operators   176d
+costmanagement-metrics-operator                       Red Hat Operators     176d
+ibm-cpd-datastage-operator                            Certified Operators   176d
+mariadb-enterprise-operator                           Certified Operators   176d
+aqua-operator-certified                               Certified Operators   176d
+ack-ses-controller                                    Community Operators   176d
+service-binding-operator                              Community Operators   176d
+multi-nic-cni-operator                                Community Operators   176d
+multicluster-operators-subscription                   Community Operators   176d
+kubernetes-nmstate-operator                           Red Hat Operators     176d
+nvidia-network-operator                               Certified Operators   176d
+job-set                                               Red Hat Operators     176d
+hcp-terraform-operator                                Certified Operators   176d
+ack-route53resolver-controller                        Community Operators   176d
+rabbitmq-messaging-topology-operator                  Community Operators   176d
+datadog-operator                                      Community Operators   176d
+ack-prometheusservice-controller                      Community Operators   176d
+k8gb                                                  Community Operators   176d
+stackable-superset-operator                           Certified Operators   176d
+openshift-cert-manager-operator                       Red Hat Operators     176d
+keysight-wap-test-core                                Certified Operators   176d
+cnfv-operator                                         Certified Operators   176d
+amd-t2-january                                        Certified Operators   176d
+ripsaw                                                Community Operators   176d
+federatorai-certified                                 Certified Operators   176d
+cass-operator                                         Certified Operators   176d
+keycloak-operator                                     Community Operators   176d
+rabbitmq-cluster-operator                             Community Operators   176d
+hive-operator                                         Community Operators   176d
+splunk-operator                                       Certified Operators   176d
+nginx-ingress-operator                                Certified Operators   176d
+kong-gateway-operator                                 Certified Operators   176d
+hazelcast-platform-operator                           Certified Operators   176d
+ack-acm-controller                                    Community Operators   176d
+silicom-sts-operator                                  Community Operators   176d
+ack-opensearchserverless-controller                   Community Operators   176d
+resource-locker-operator                              Community Operators   176d
+windup-operator                                       Community Operators   176d
+digitalai-deploy-operator                             Certified Operators   176d
+ibm-block-csi-operator                                Certified Operators   176d
+bamoe-kogito-operator                                 Red Hat Operators     176d
+nfd                                                   Red Hat Operators     176d
+ingress-node-firewall                                 Red Hat Operators     176d
+ibm-elasticsearch-operator                            Certified Operators   176d
+aqua                                                  Community Operators   176d
+analytics-operator                                    Community Operators   176d
+pcc-operator                                          Certified Operators   176d
+keysight-wap-appsec                                   Certified Operators   176d
+infinibox-operator-certified                          Certified Operators   176d
+multiarch-tuning-operator                             Red Hat Operators     176d
+clusterresourceoverride                               Red Hat Operators     176d
+loki-operator                                         Red Hat Operators     176d
+nxrm-operator-certified                               Certified Operators   176d
+tigera-operator                                       Certified Operators   176d
+uma-team-operator                                     Certified Operators   176d
+ack-kinesis-controller                                Community Operators   176d
+rsct-operator                                         Community Operators   176d
+node-discovery-operator                               Community Operators   176d
+dpu-network-operator                                  Red Hat Operators     176d
+verticadb-operator                                    Community Operators   176d
+gitlab-operator-kubernetes                            Certified Operators   176d
+keysight-wap-stats-dashboards                         Certified Operators   176d
+strimzi-kafka-operator                                Community Operators   176d
+skupper-netobs-operator                               Red Hat Operators     176d
+hpe-csi-operator                                      Certified Operators   176d
+uma-admin-operator                                    Certified Operators   176d
+ack-bedrockagentcorecontrol-controller                Community Operators   176d
+template-operator                                     Certified Operators   176d
+ack-wafv2-controller                                  Community Operators   176d
+tempo-product                                         Red Hat Operators     176d
+openshift-custom-metrics-autoscaler-operator          Red Hat Operators     176d
+tenant-operator                                       Certified Operators   176d
+kubemq-operator-marketplace                           Certified Operators   176d
+infoscale-sds-operator                                Certified Operators   176d
+alvearie-imaging-ingestion                            Community Operators   176d
+ack-cloudtrail-controller                             Community Operators   176d
+ptp-operator                                          Red Hat Operators     176d
+keysight-wap-logging                                  Certified Operators   176d
+dynatrace-operator                                    Community Operators   176d
+multicluster-global-hub-operator                      Community Operators   176d
+project-quay                                          Community Operators   176d
+f5-ipam-controller-operator                           Certified Operators   176d
+keysight-wap-ui                                       Certified Operators   176d
+ibm-commonui-operator-app                             Certified Operators   176d
+cert-manager                                          Community Operators   176d
+kogito-operator                                       Community Operators   176d
+fence-agents-remediation                              Community Operators   176d
+airlock-microgateway                                  Certified Operators   176d
+model-validation-operator                             Red Hat Operators     176d
+cert-utils-operator                                   Community Operators   176d
+mongodb-atlas-kubernetes                              Community Operators   176d
+power-monitoring-operator                             Red Hat Operators     176d
+volsync-product                                       Red Hat Operators     176d
+web-terminal                                          Red Hat Operators     176d
+kedify-agent-helm-operator                            Certified Operators   176d
+keysight-nimbusmosaic-dusim                           Certified Operators   176d
+apicurito                                             Community Operators   176d
+kove-operator                                         Certified Operators   176d
+gitops-primer                                         Community Operators   176d
+sailoperator                                          Community Operators   176d
+leader-worker-set                                     Red Hat Operators     176d
+infinispan                                            Community Operators   176d
+ack-s3control-controller                              Community Operators   176d
+node-healthcheck-operator                             Red Hat Operators     176d
+dell-csm-operator                                     Community Operators   176d
+crunchy-postgres-operator                             Certified Operators   176d
+ibm-security-verify-directory-operator                Certified Operators   176d
+starburst-enterprise-helm-operator-paygo-rhmp         Red Hat Marketplace   176d
+varnish-operator                                      Community Operators   176d
+opendatahub-operator                                  Community Operators   176d
+edb-hcp-operator                                      Certified Operators   176d
+edp-keycloak-operator                                 Community Operators   176d
+opentelemetry-operator                                Community Operators   176d
+korrel8r                                              Community Operators   176d
+cincinnati-operator                                   Red Hat Operators     176d
+trustee-operator                                      Red Hat Operators     176d
+mcg-operator                                          Red Hat Operators     176d
+percona-xtradb-cluster-operator-certified             Certified Operators   176d
+red-hat-camel-k                                       Red Hat Operators     176d
+percona-postgresql-operator-certified                 Certified Operators   176d
+stackable-hbase-operator                              Certified Operators   176d
+ack-eks-controller                                    Community Operators   176d
+trustify-operator                                     Community Operators   176d
+sosreport-operator                                    Community Operators   176d
+sonar-operator                                        Community Operators   176d
+prometheus                                            Community Operators   176d
+ember-csi-community-operator                          Community Operators   176d
+habana-ai-operator                                    Certified Operators   176d
+ibm-metrics-operator                                  Certified Operators   176d
+deployment-validation-operator                        Community Operators   176d
+entando-k8s-operator-rhmp                             Red Hat Marketplace   176d
+seldon-deploy-operator-rhmp                           Red Hat Marketplace   176d
+skupper-operator                                      Red Hat Operators     176d
+linstor-operator                                      Certified Operators   176d
+stackable-commons-operator                            Certified Operators   176d
+github-arc-operator                                   Community Operators   176d
+ack-applicationautoscaling-controller                 Community Operators   176d
+percona-postgresql-operator                           Community Operators   176d
+volume-expander-operator                              Community Operators   176d
+odoo-operator                                         Community Operators   176d
+elasticsearch-operator                                Red Hat Operators     176d
+node-maintenance-operator                             Red Hat Operators     176d
+servicemeshoperator3                                  Red Hat Operators     176d
+ibm-licensing-operator-app                            Certified Operators   176d
+ccm-node-agent-operator                               Certified Operators   176d
+cfm-operator                                          Certified Operators   176d
+keysight-wap-storage                                  Certified Operators   176d
+cloudnative-pg                                        Certified Operators   176d
+namespace-configuration-operator                      Community Operators   176d
+prometheus-exporter-operator                          Community Operators   176d
+docling-operator                                      Community Operators   176d
+red-hat-hawtio-operator                               Red Hat Operators     176d
+xcrypt-operator                                       Certified Operators   176d
+keysight-wap-msg-broker                               Certified Operators   176d
+aikit-operator                                        Certified Operators   176d
+xcrypt-operator-rhmp                                  Red Hat Marketplace   176d
+neuvector-community-operator                          Community Operators   176d
+kube-green                                            Community Operators   176d
+vmstore-csi-driver-operator                           Certified Operators   176d
+layer7-operator                                       Community Operators   176d
+keysight-keycloak-operator                            Certified Operators   176d
+ibm-storage-odf-operator                              Certified Operators   176d
+camel-karavan-operator                                Community Operators   176d
+trident-operator                                      Community Operators   176d
+rhcl-operator                                         Red Hat Operators     176d
+watcher-operator                                      Red Hat Operators     176d
+stackgres-community                                   Community Operators   176d
+keysight-wap-diagnostics                              Certified Operators   176d
+coroot-operator                                       Certified Operators   176d
+amq-broker-rhel9                                      Red Hat Operators     176d
+stackable-hive-operator                               Certified Operators   176d
+kubevirt-wol                                          Community Operators   176d
+fujitsu-enterprise-postgres-operator-with-cg-module   Certified Operators   176d
+egressip-ipam-operator                                Community Operators   176d
+ucs-ci-solutions-operator                             Community Operators   176d
+ack-pipes-controller                                  Community Operators   176d
+openshift-qiskit-operator                             Community Operators   176d
+ipfs-operator                                         Community Operators   176d
+mtv-operator                                          Red Hat Operators     176d
+istio-workspace-operator                              Community Operators   176d
+tidb-operator                                         Community Operators   176d
+seldon-operator                                       Community Operators   176d
+coherence-operator                                    Certified Operators   176d
+redis-enterprise-operator-cert                        Certified Operators   176d
+pf-status-relay-operator                              Red Hat Operators     176d
+iomesh-operator-rhmp                                  Red Hat Marketplace   176d
+slurm-operator                                        Community Operators   176d
+gitlab-runner-operator                                Certified Operators   176d
+alloydb-omni-operator                                 Community Operators   176d
+special-resource-operator                             Community Operators   176d
+multicluster-global-hub-operator-rh                   Red Hat Operators     176d
+sandboxed-containers-operator                         Red Hat Operators     176d
+stackable-spark-operator                              Certified Operators   176d
+k10-kasten-operator-rhmp                              Red Hat Marketplace   176d
+sumologic-kubernetes-collection-helm-operator-rhmp    Red Hat Marketplace   176d
+hazelcast-platform-operator                           Community Operators   176d
+ncn-operator                                          Community Operators   176d
+ibm-namespace-scope-operator                          Certified Operators   176d
+ibm-data-reporter-operator                            Certified Operators   176d
+smilecdr-operator                                     Certified Operators   176d
+keysight-kcos-sso                                     Certified Operators   176d
+cilium-enterprise                                     Certified Operators   176d
+open-liberty-certified                                Certified Operators   176d
+nexus-operator-m88i                                   Community Operators   176d
+gitlab-operator-kubernetes                            Community Operators   176d
+self-node-remediation                                 Community Operators   176d
+ansible-automation-platform-operator                  Red Hat Operators     176d
+redis-enterprise-operator-cert-rhmp                   Red Hat Marketplace   176d
+apicurio-registry                                     Community Operators   176d
+community-windows-machine-config-operator             Community Operators   176d
+raftt-operator                                        Certified Operators   176d
+cte-k8s-operator                                      Certified Operators   176d
+pcc-operator                                          Community Operators   176d
+ack-memorydb-controller                               Community Operators   176d
+apicurio-api-controller                               Community Operators   176d
+tang-operator                                         Red Hat Operators     176d
+kubevirt-hyperconverged                               Red Hat Operators     176d
+gitlab-runner-operator                                Community Operators   176d
+sap-commerce-operator                                 Community Operators   176d
+openstack-operator                                    Red Hat Operators     176d
+numaresources-operator                                Red Hat Operators     176d
+mtc-operator                                          Red Hat Operators     176d
+nlp-server                                            Community Operators   176d
+rhtpa-operator                                        Red Hat Operators     176d
+vcp-operator                                          Certified Operators   176d
+couchbase-enterprise-certified-rhmp                   Red Hat Marketplace   176d
+bpfman-operator                                       Community Operators   176d
+datagrid                                              Red Hat Operators     176d
+mongodb-enterprise                                    Certified Operators   176d
+datadog-operator-certified                            Certified Operators   176d
+falcon-operator                                       Community Operators   176d
+businessautomation-operator                           Red Hat Operators     176d
+hulft                                                 Certified Operators   176d
+appian-operator                                       Certified Operators   176d
+nim-operator-certified                                Certified Operators   176d
+ibm-security-verify-access-operator                   Community Operators   176d
+tf-controller                                         Community Operators   176d
+wandb-operator                                        Community Operators   176d
+ack-apigatewayv2-controller                           Community Operators   176d
+kiali-ossm                                            Red Hat Operators     176d
+confluent-for-kubernetes                              Certified Operators   176d
+conjur-follower-operator                              Certified Operators   176d
+ibm-security-verify-operator                          Certified Operators   176d
+sriov-network-operator                                Red Hat Operators     176d
+azure-service-operator                                Community Operators   176d
+kubeturbo                                             Community Operators   176d
+external-dns-operator                                 Red Hat Operators     176d
+container-security-operator                           Red Hat Operators     176d
+operator-certification-operator                       Certified Operators   176d
+pmem-csi-operator-os                                  Certified Operators   176d
+pachyderm-operator-rhmp                               Red Hat Marketplace   176d
+hyperfoil-bundle                                      Community Operators   176d
+loki-operator                                         Community Operators   176d
+victoriametrics-operator                              Community Operators   176d
+move2kube-operator                                    Community Operators   176d
+eda-k8s-operator                                      Certified Operators   176d
+amq-streams-proxy                                     Red Hat Operators     176d
+stackgres-certified                                   Certified Operators   176d
+odigos-operator                                       Certified Operators   176d
+sonataflow-operator                                   Community Operators   176d
+konveyor-operator                                     Community Operators   176d
+ansible-cloud-addons-operator                         Red Hat Operators     176d
+redhat-oadp-operator                                  Red Hat Operators     176d
+anzo-operator                                         Certified Operators   176d
+mongodb-operator                                      Community Operators   176d
+hspc-operator                                         Certified Operators   176d
+keysight-rest-api-browser-v1                          Certified Operators   176d
+aikit-operator-rhmp                                   Red Hat Marketplace   176d
+yugabyte-platform-operator-bundle-rhmp                Red Hat Marketplace   176d
+klusterlet                                            Community Operators   176d
+odr-cluster-operator                                  Red Hat Operators     176d
+fence-agents-remediation                              Red Hat Operators     176d
+prometurbo-certified                                  Certified Operators   176d
+t8c-certified-rhmp                                    Red Hat Marketplace   176d
+ack-sqs-controller                                    Community Operators   176d
+cluster-impairment-operator                           Community Operators   176d
+vault-config-operator                                 Community Operators   176d
+ack-opensearchservice-controller                      Community Operators   176d
+submariner                                            Red Hat Operators     176d
+ibm-license-service-scanner-operator                  Certified Operators   176d
+elasticsearch-eck-operator-certified                  Certified Operators   176d
+netscaler-adm-agent-operator                          Certified Operators   176d
+anzounstructured-operator                             Certified Operators   176d
+hnas-csi-operator                                     Certified Operators   176d
+gitwebhook-operator                                   Community Operators   176d
+keda                                                  Community Operators   176d
+keysight-loadcore-agents                              Certified Operators   176d
+serverless-operator                                   Red Hat Operators     176d
+mongodb-kubernetes                                    Certified Operators   176d
+openshiftxray-operator                                Certified Operators   176d
+k8s-triliovault                                       Certified Operators   176d
+ack-s3-controller                                     Community Operators   176d
+kepler-operator                                       Community Operators   176d
+prometurbo                                            Community Operators   176d
+joget-dx-operator-rhmp                                Red Hat Marketplace   176d
+dns-operator                                          Community Operators   176d
+ndb-operator                                          Community Operators   176d
+application-services-metering-operator                Community Operators   176d
+ack-cognitoidentityprovider-controller                Community Operators   176d
+ibm-spectrum-scale-csi-operator                       Community Operators   176d
+ocs-operator                                          Red Hat Operators     176d
+node-observability-operator                           Red Hat Operators     176d
+community-kubevirt-hyperconverged                     Community Operators   176d
+stackable-nifi-operator                               Certified Operators   176d
+vfunction-server-operator-rhmp                        Red Hat Marketplace   176d
+ack-sns-controller                                    Community Operators   176d
+ack-emrcontainers-controller                          Community Operators   176d
+syndesis                                              Community Operators   176d
+odf-prometheus-operator                               Red Hat Operators     176d
+vertical-pod-autoscaler                               Red Hat Operators     176d
+service-registry-operator                             Red Hat Operators     176d
+stackgres                                             Red Hat Marketplace   176d
+stackable-druid-operator                              Certified Operators   176d
+ibm-security-verify-access-operator                   Certified Operators   176d
+tawon-operator                                        Certified Operators   176d
+keycloak-permissions-operator                         Community Operators   176d
+servicemeshoperator                                   Red Hat Operators     176d
+file-integrity-operator                               Red Hat Operators     176d
+arkmq-org-broker-operator                             Community Operators   176d
+percona-server-mongodb-operator-certified             Certified Operators   176d
+synaxg-operator                                       Certified Operators   176d
+instana-agent-operator                                Certified Operators   176d
+loki-helm-operator                                    Community Operators   176d
+cxl-operator                                          Community Operators   176d
+quay-bridge-operator                                  Red Hat Operators     176d
+amq-streams                                           Red Hat Operators     176d
+codeflare-operator                                    Community Operators   176d
+anzo-operator-rhmp                                    Red Hat Marketplace   176d
+must-gather-operator                                  Community Operators   176d
+odf-csi-addons-operator                               Red Hat Operators     176d
+minio-object-store-operator                           Certified Operators   176d
+ibm-zen-operator                                      Certified Operators   176d
+flux                                                  Community Operators   176d
+jhipster-online-operator                              Community Operators   176d
+ack-rds-controller                                    Community Operators   176d
+odr-hub-operator                                      Red Hat Operators     176d
+mongodb-atlas-kubernetes                              Certified Operators   176d
+redis-operator                                        Community Operators   176d
+datatrucker-operator                                  Community Operators   176d
+ack-ecrpublic-controller                              Community Operators   176d
+ack-codeartifact-controller                           Community Operators   176d
+sanstoragecsi-operator-bundle                         Certified Operators   176d
+portworx-certified                                    Certified Operators   176d
+pubsubplus-eventbroker-operator                       Community Operators   176d
+scaleops-operator                                     Certified Operators   176d
+reportportal-operator                                 Community Operators   176d
+nsm-operator                                          Community Operators   176d
+joget-dx-operator                                     Certified Operators   176d
+vast-csi-operator                                     Certified Operators   176d
+nexus-repository-ha-operator-certified                Certified Operators   176d
+ack-ecr-controller                                    Community Operators   176d
+universal-crossplane                                  Community Operators   176d
+flux-operator                                         Community Operators   176d
+nbde-tang-server                                      Red Hat Operators     176d
+netobserv-operator                                    Red Hat Operators     176d
+kubeturbo-certified                                   Certified Operators   176d
+logging-operator                                      Community Operators   176d
+camel-k                                               Community Operators   176d
+bpfman-operator                                       Red Hat Operators     176d
+lightbits-operator                                    Certified Operators   176d
+ack-apigateway-controller                             Community Operators   176d
+odf-node-recovery-operator                            Community Operators   176d
+node-maintenance-operator                             Community Operators   176d
+ack-networkfirewall-controller                        Community Operators   176d
+deployment-validation-operator                        Red Hat Operators     176d
+ibmcloud-operator                                     Community Operators   176d
+self-node-remediation                                 Red Hat Operators     176d
+openshift-zero-trust-workload-identity-manager        Red Hat Operators     176d
+cockroachdb-certified                                 Certified Operators   176d
+ack-documentdb-controller                             Community Operators   176d
+tagger                                                Community Operators   176d
+lvms-operator                                         Red Hat Operators     176d
+rhtas-operator                                        Red Hat Operators     176d
+ibm-cpd-ccs                                           Certified Operators   176d
+ovms-operator-rhmp                                    Red Hat Marketplace   176d
+3scale-community-operator                             Community Operators   176d
+multicluster-engine                                   Red Hat Operators     176d
+eginnovations-operator                                Certified Operators   176d
+ack-route53-controller                                Community Operators   176d
+recipe                                                Red Hat Operators     176d
+patterns-operator                                     Community Operators   176d
+eginnovations-operator                                Community Operators   176d
+ocs-client-operator                                   Red Hat Operators     176d
+kueue-operator                                        Red Hat Operators     176d
+cpd-platform-operator                                 Certified Operators   176d
+minio-key-manager-operator                            Certified Operators   176d
+pg4k-pgd                                              Certified Operators   176d
+ack-bedrock-controller                                Community Operators   176d
+debezium-operator                                     Community Operators   176d
+marin3r                                               Community Operators   176d
+aerospike-kubernetes-operator                         Community Operators   176d
+dpu-operator                                          Red Hat Operators     176d
+silicom-sts-operator                                  Certified Operators   176d
+nxiq-operator-certified                               Certified Operators   176d
+keysight-kcos-framework                               Certified Operators   176d
+pubsubplus-eventbroker-operator                       Certified Operators   176d
+crunchy-postgres-operator-rhmp                        Red Hat Marketplace   176d
+cockroachdb-certified-rhmp                            Red Hat Marketplace   176d
+apicurio-registry-3                                   Community Operators   176d
+rhoas-operator                                        Community Operators   176d
+keysight-wap-core                                     Certified Operators   176d
+ack-sagemaker-controller                              Community Operators   176d
+ack-cloudfront-controller                             Community Operators   176d
+helloworld-operator                                   Red Hat Operators     176d
+kurrentdb-operator                                    Certified Operators   176d
+lenovo-locd-operator                                  Certified Operators   176d
+anzounstructured-operator-rhmp                        Red Hat Marketplace   176d
+shipwright-operator                                   Community Operators   176d
+NAME                                                   REMEDIATION ACTION   COMPLIANCE STATE   AGE
+acm-dcce-policies.policy-checknamespaces-terminating   inform               Compliant          43h
+NAME                                                                          ROLE                                                               AGE
+admin                                                                         ClusterRole/admin                                                  44h
+cluster-proxy-addon-agent                                                     Role/cluster-proxy-addon-agent                                     44h
+endpoint-observability-res-rolebinding                                        ClusterRole/endpoint-observability-res-role                        43h
+managed-cluster-workmgr                                                       ClusterRole/managed-cluster-workmgr                                44h
+open-cluster-management:addons:application-manager                            ClusterRole/open-cluster-management:addons:application-manager     44h
+open-cluster-management:addons:search-collector                               ClusterRole/open-cluster-management:addons:search-collector        44h
+open-cluster-management:cert-policy-controller-hub                            ClusterRole/open-cluster-management:cert-policy-controller-hub     44h
+open-cluster-management:config-policy-controller-hub                          ClusterRole/open-cluster-management:config-policy-controller-hub   44h
+open-cluster-management:managed-serviceaccount:clusterrole:agent              ClusterRole/managed-serviceaccount-addon-agent                     44h
+open-cluster-management:managedcluster:dcce-cle-oscp-bm-test-2:registration   ClusterRole/open-cluster-management:managedcluster:registration    44h
+open-cluster-management:managedcluster:dcce-cle-oscp-bm-test-2:work           ClusterRole/open-cluster-management:managedcluster:work            44h
+open-cluster-management:managedclusterset:admin                               ClusterRole/admin                                                  44h
+open-cluster-management:managedclusterset:view                                ClusterRole/view                                                   44h
+open-cluster-management:policy-framework-hub                                  ClusterRole/open-cluster-management:policy-framework-hub           44h
+system:deployers                                                              ClusterRole/system:deployer                                        44h
+system:image-builders                                                         ClusterRole/system:image-builder                                   44h
+NAME                        CREATED AT
+cluster-proxy-addon-agent   2025-11-12T19:09:35Z
+NAME                                         AGE
+addon-application-manager-deploy-0           43h
+addon-cert-policy-controller-deploy-0        43h
+addon-cluster-proxy-deploy-0                 44h
+addon-config-policy-controller-deploy-0      43h
+addon-governance-policy-framework-deploy-0   43h
+addon-managed-serviceaccount-deploy-0        44h
+addon-search-collector-deploy-0              44h
+addon-work-manager-deploy-0                  44h
+dcce-cle-oscp-bm-test-2-klusterlet           44h
+dcce-cle-oscp-bm-test-2-klusterlet-crds      44h
+dcce-cle-oscp-bm-test-2-observability        43h

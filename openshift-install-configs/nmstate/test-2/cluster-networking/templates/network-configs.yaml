@@ -1,0 +1,71 @@
+{{- define "random.mac" -}}
+{{- printf "%sA:%sB:%sC:%sD:%sE:%sF" (randNumeric 1 ) (randNumeric 1 ) (randNumeric 1 ) (randNumeric 1 ) (randNumeric 1 ) (randNumeric 1 ) -}}
+{{- end -}}
+{{- range $_, $host := $.Values.hosts }}
+  {{- range $_, $interface := $host.interfaces }}
+    {{- if  eq $interface.macAddress "" -}}
+      {{- $_ := set $interface "macAddress" (include "random.mac" .) -}}
+    {{- end -}}
+  {{ end }}
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  labels:
+    infraenvs.agent-install.openshift.io: {{ $.Values.clusterName }}
+  name: {{ $host.name }}
+  namespace: {{ $.Values.clusterName }}
+spec:
+  config:
+    dns-resolver:
+      config:
+        server:
+  {{- range $_, $dnsServer := $.Values.dnsServers }}
+          - {{ $dnsServer }}
+  {{- end }}
+    interfaces:
+  {{- if ((index $.Values "useBond") | default true) }}
+    {{- $bondName := (printf "%s%s" "bond0." (toString ($.Values.vlan | default 0))) }}
+      - ipv4:
+          dhcp: false
+          enabled: false
+        ipv6:
+          enabled: false
+        link-aggregation:
+          mode: active-backup
+          port:
+    {{- range $idx, $interface := $host.interfaces }}
+      {{- if not (index $interface "disabled" | default false) }}
+            - {{ (index $interface "name") | default (printf "%s%s" "eno" (toString (add1 $idx))) }}
+      {{- end }}
+    {{- end }}
+        mac-address: {{ index $host "primaryMac" | default (index $host.interfaces 0 "macAddress") }}
+        name: bond0
+        state: up
+        type: bond
+      - ipv4:
+          address:
+            - ip: {{ $host.IP }}
+              prefix-length: {{ $.Values.machinePrefixLength }}
+          dhcp: {{ index $.Values "useDHCP" | default false }}
+          enabled: true
+        ipv6:
+          enabled: false
+        name: {{ $bondName }}
+        state: up
+        type: vlan
+        vlan:
+          base-iface: bond0
+          id: {{ $.Values.vlan | default 0 }}
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: {{ $.Values.defaultGateway }}
+          next-hop-interface: {{ $bondName }}
+  {{- end }}
+  interfaces:
+  {{- range $idx, $interface := $host.interfaces }}
+    - macAddress: {{ $interface.macAddress | default }}
+      name: {{ (index $interface "name") | default (printf "%s%s" "eno" (toString (add1 $idx))) }}
+  {{- end }}
+{{- end }}
