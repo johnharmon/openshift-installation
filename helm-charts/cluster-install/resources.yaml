@@ -1,0 +1,153 @@
+---
+# Source: cluster-install/templates/C-Namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-cluster
+---
+# Source: cluster-install/templates/D-pullSecret.yaml
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/dockerconfigjson
+metadata:
+  name: pullsecret-test-cluster
+  namespace: test-cluster
+stringData:
+  .dockerconfigjson: ''
+---
+# Source: cluster-install/templates/H-bmcSecret.yaml
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-credential-host-1
+  namespace: test-cluster
+data:
+  username: root
+  password: password
+---
+# Source: cluster-install/templates/H-bmcSecret.yaml
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-credential-host-n
+  namespace: test-cluster
+data:
+  username: root
+  password: password
+---
+# Source: cluster-install/templates/F-AgentClusterInstall.yaml
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: test-cluster
+  namespace: test-cluster
+spec:
+  platformType: BareMetal 
+  clusterDeploymentRef:
+    name: test-cluster
+  imageSetRef:
+    name: openshift-image-set--4.19.17
+  networking:
+    clusterNetwork:
+    - cidr: 10.10.10.1/23
+      hostPrefix: 23
+    machineNetwork:
+    - cidr: 192.168.86.1/24
+    serviceNetwork:
+  provisionRequirements:
+    controlPlaneAgents: 1
+  sshPublicKey: test
+---
+# Source: cluster-install/templates/I-BareMetalHost.yaml
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+  name: host-1
+  namespace: test-cluster
+  labels:
+    infraenvs.agent-install.openshift.io: test-cluster
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: 'redfish:///redfish/v1/Systems/system.Embedded.1'
+    credentialsName: bmc-credential-host-1
+    disableCertificateVerification: true
+  bootMACAddress: '00:11:22:33:44:55'
+  customDeploy:
+    method: start_assisted_install
+  online: true
+---
+# Source: cluster-install/templates/I-BareMetalHost.yaml
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+  name: host-n
+  namespace: test-cluster
+  labels:
+    infraenvs.agent-install.openshift.io: test-cluster
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: 'redfish:///redfish/v1/Systems/system.Embedded.1'
+    credentialsName: bmc-credential-host-n
+    disableCertificateVerification: true
+  bootMACAddress: '00:11:22:33:44:55'
+  customDeploy:
+    method: start_assisted_install
+  online: true
+---
+# Source: cluster-install/templates/E-ClusterDeployment.yaml
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: test-cluster
+  namespace: test-cluster
+spec:
+  baseDomain: example.com
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: test-cluster 
+    version: v1beta1
+  clusterName: test-cluster
+  controlPlaneConfig:
+    servingCertificates: {}
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          location: internal
+  pullSecretRef:
+    name: pullsecret-test-cluster
+---
+# Source: cluster-install/templates/B-ClusterImageSet.yaml
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: openshift-image-set--4.19.17
+  labels:
+    visible: 'true'
+spec:
+  releaseImage: 'quay.io/openshift-release-dev/ocp-release:4.19.17-x86_64'
+---
+# Source: cluster-install/templates/G-InfraEnv.yaml
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: test-cluster
+  namespace: test-cluster
+spec:
+  additionalTrustBundle: 
+  clusterRef:
+    name: test-cluster
+    namespace: test-cluster 
+  pullSecretRef:
+    name: pullsecret-test-cluster
+  sshAuthorizedKey: test
+  nmStateConfigLabelSelector:
+    matchLabels:
+     infraenvs.agent-install.openshift.io: test-cluster

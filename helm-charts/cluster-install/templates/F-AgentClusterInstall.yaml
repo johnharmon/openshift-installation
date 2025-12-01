@@ -1,0 +1,32 @@
+{{- $pullSecretName := printf "pullsecret-%s" $.Values.clusterName }}
+{{- $clusterName := $.Values.clusterName }}
+{{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
+{{- $imageSet := printf "%s-%s" "openshift-image-set" $.Values.openshiftVersion }}
+
+---
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: {{ $clusterName }}
+  namespace: {{ $clusterName }}
+spec:
+  platformType: BareMetal 
+  clusterDeploymentRef:
+    name: {{ $clusterName }}
+  imageSetRef:
+    name: {{ $imageSet }}
+  networking:
+    clusterNetwork:
+    - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
+      hostPrefix: {{ $.Values.networking.clusterNetwork.hostPrefix }}
+    machineNetwork:
+    - cidr: {{ $.Values.networking.machineNetwork.cidr }}
+    serviceNetwork:
+    {{- range $_, $network := $.Values.serviceNetwork }}
+    - {{ $network }}
+    {{ end }}
+  apiVip: {{ $.Values.apiVip }}
+  ingressVip: {{ $.Values.ingressVip }}
+  provisionRequirements:
+    controlPlaneAgents: {{ $.Values.controlPlaneAgents | default 3 }}
+  sshPublicKey: {{ $.Values.sshPublicKey | default "" }}

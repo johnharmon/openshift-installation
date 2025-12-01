@@ -1,0 +1,27 @@
+{{- $pullSecretName := printf "pullsecret-%s" $.Values.clusterName }}
+{{- $clusterName := $.Values.clusterName }}
+{{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
+{{- $imageSet := printf "%s-%s" "openshift-image-set-" $.Values.openshiftVersion }}
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: {{ $clusterName }}
+  namespace: {{ $clusterName }}
+spec:
+  baseDomain: {{ $.Values.baseDomain }}
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: {{ $clusterName }} 
+    version: v1beta1
+  clusterName: {{ $clusterName }}
+  controlPlaneConfig:
+    servingCertificates: {}
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          location: internal
+  pullSecretRef:
+    name: {{ $pullSecretName }}

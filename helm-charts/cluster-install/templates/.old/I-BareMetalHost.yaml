@@ -1,0 +1,21 @@
+{{- range $_, $host := $.Values.hosts }}
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+  name: {{ $host.name }}
+  namespace: {{ $clusterName }}
+  labels:
+    infraenvs.agent-install.openshift.io: {{ $clusterName }}
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: '{{ $.Values.bmcPrefix }}://{{ $host.bmcIP }}{{ $.Values.bmcEndpoint }}'
+    credentialsName: {{ printf "%s-%s" "bmc-credential" $host.name }}
+    disableCertificateVerification: true
+  bootMACAddress: '{{ $host.bootMACAddress }}'
+  customDeploy:
+    method: start_assisted_install
+  online: true
+{{ end }}
