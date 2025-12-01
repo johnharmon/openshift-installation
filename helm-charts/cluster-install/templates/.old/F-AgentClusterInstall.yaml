@@ -1,0 +1,26 @@
+
+---
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: {{ $clusterName }}
+  namespace: {{ $clusterName }}
+spec:
+  platformType: BareMetal 
+  clusterDeploymentRef:
+    name: {{ $clusterName }}
+  imageSetRef:
+    name: {{ $imageSet }}
+  networking:
+    clusterNetwork:
+    - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
+      hostPrefix: {{ $.Values.networking.clusterNetwork.hostPrefix }}
+    machineNetwork:
+    - cidr: {{ $.Values.networking.machineNetwork.cidr }}
+    serviceNetwork:
+    {{- range $_, $network := $.Values.serviceNetwork }}
+    - {{ $network }}
+    {{ end }}
+  provisionRequirements:
+    controlPlaneAgents: {{ $.Values.controlPlaneAgents | default 1 }}
+  sshPublicKey: {{ $.Values.sshPublicKey | default "" }}

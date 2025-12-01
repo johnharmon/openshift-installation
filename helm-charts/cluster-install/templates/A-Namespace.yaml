@@ -1,0 +1,9 @@
+{{- $pullSecretName := printf "pullsecret-%s" $.Values.clusterName }}
+{{- $clusterName := $.Values.clusterName }}
+{{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
+{{- $imageSet := printf "%s-%s" "openshift-image-set-" $.Values.openshiftVersion }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ $clusterName }}

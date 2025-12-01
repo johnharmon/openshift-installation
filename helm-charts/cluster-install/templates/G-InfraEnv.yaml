@@ -1,0 +1,22 @@
+{{- $pullSecretName := printf "pullsecret-%s" $.Values.clusterName }}
+{{- $clusterName := $.Values.clusterName }}
+{{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
+{{- $imageSet := printf "%s-%s" "openshift-image-set-" $.Values.openshiftVersion }}
+
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: {{ $clusterName }}
+  namespace: {{ $clusterName }}
+spec:
+  additionalTrustBundle: {{ $.Values.caTrustBundle | default "" }}
+  clusterRef:
+    name: {{ $clusterName }}
+    namespace: {{ $clusterName }} 
+  pullSecretRef:
+    name: {{ $pullSecretName | default "" }}
+  sshAuthorizedKey: {{ $.Values.sshPublicKey | default "" }}
+  nmStateConfigLabelSelector:
+    matchLabels:
+     infraenvs.agent-install.openshift.io: {{ $clusterName }}
