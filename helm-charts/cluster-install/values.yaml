@@ -28,7 +28,7 @@ hosts:
   - name: host-1
     bmcUsername: 'root'
     bmcPassword: 'password'
-    bmcEnpoint: '127.0.0.1'
+    bmcEndpoint: '127.0.0.1'
     bootMACAddress: '00:11:22:33:44:55'
     interfaces: 
       - macAddress: ""
@@ -41,7 +41,7 @@ hosts:
   - name: host-n
     bmcUsername: 'root'
     bmcPassword: 'password'
-    bmcEnpoint: 'redfish://127.0.0.1/redfish/v1/Systems/System.Embedded.1'
+    bmcEndpoint: 'redfish://127.0.0.1/redfish/v1/Systems/System.Embedded.1'
     bootMACAddress: '00:11:22:33:44:55'
     interfaces: 
       - macAddress: '"string; regex_match: [A-z0-9]{2}(:[A-z0-9]{2}){5}"'
