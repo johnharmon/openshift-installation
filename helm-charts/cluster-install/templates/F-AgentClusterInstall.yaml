@@ -40,5 +40,4 @@ spec:
   provisionRequirements:
     controlPlaneAgents: 1
   {{- end }}
-  provisionRequirements:
   sshPublicKey: {{ $.Values.sshPublicKey | default "" }}
