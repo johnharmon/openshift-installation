@@ -2,8 +2,8 @@
 {{- $clusterName := $.Values.clusterName }}
 {{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
 {{- $imageSet := printf "%s-%s" "openshift-image-set" $.Values.openshiftVersion }}
-{{- $controlPlaneCount = $.Values.controlPlaneAgents | default 3 }}
-{{- $workerCount = $.Values.workerAgents | default (($.Values.hosts | length) - $controlPlaneCount) }}
+{{- $controlPlaneCount := $.Values.controlPlaneAgents | default 3 }}
+{{- $workerCount := $.Values.workerAgents | default (sub ($.Values.hosts | len)  $controlPlaneCount) }}
 
 ---
 apiVersion: extensions.hive.openshift.io/v1beta1
