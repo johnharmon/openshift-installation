@@ -2,6 +2,8 @@
 {{- $clusterName := $.Values.clusterName }}
 {{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
 {{- $imageSet := printf "%s-%s" "openshift-image-set" $.Values.openshiftVersion }}
+{{- $controlPlaneCount = $.Values.controlPlaneAgents | default 3 }}
+{{- $workerCount = $.Values.workerAgents | default (($.Values.hosts | length) - $controlPlaneCount) }}
 
 ---
 apiVersion: extensions.hive.openshift.io/v1beta1
@@ -15,6 +17,13 @@ spec:
     name: {{ $clusterName }}
   imageSetRef:
     name: {{ $imageSet }}
+  {{- if not ($.Values.sno | default false) }}
+  apiVip: {{ $.Values.apiVip }}
+  ingressVip: {{ $.Values.ingressVip }}
+  mastersSchedulable: {{ $.Values.mastersSchedulable | default false }}
+  provisionRequirements:
+    controlPlaneAgents: {{ $controlPlaneCount }}
+    workerAgents: {{ $workerCount }}
   networking:
     clusterNetwork:
     - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
@@ -25,8 +34,11 @@ spec:
     {{- range $_, $network := $.Values.serviceNetwork }}
     - {{ $network }}
     {{ end }}
-  apiVip: {{ $.Values.apiVip }}
-  ingressVip: {{ $.Values.ingressVip }}
+  {{- else }}
+  networking:
+    userManagedNetworking: true
   provisionRequirements:
-    controlPlaneAgents: {{ $.Values.controlPlaneAgents | default 3 }}
+    controlPlaneAgents: 1
+  {{- end }}
+  provisionRequirements:
   sshPublicKey: {{ $.Values.sshPublicKey | default "" }}
