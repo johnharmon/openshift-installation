@@ -24,6 +24,7 @@ dnsServers:
   - <dnsIP1>
   - <dnsIP2>
   - <dnsIP3>
+vlan: ''
 hosts:
   - name: host-1
     bmcUsername: 'root'
