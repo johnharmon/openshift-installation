@@ -22,6 +22,6 @@ spec:
     agentBareMetal:
       agentSelector:
         matchLabels:
-          location: internal
+          agentBareMetal-generated-infraenv-ai-flow: {{ $clusterName }}-{{ $clusterName }}
   pullSecretRef:
     name: {{ $pullSecretName }}

@@ -8,6 +8,7 @@ apiVersion: metal3.io/v1alpha1
 kind: BareMetalHost
 metadata:
   annotations:
+    bmac.agent-install.openshift.io/hostname: {{ $host.name }}
   name: {{ $host.name }}
   namespace: {{ $clusterName }}
   labels:
@@ -15,7 +16,7 @@ metadata:
 spec:
   automatedCleaningMode: disabled
   bmc:
-    address: '{{ $.Values.bmcPrefix }}://{{ $host.bmcIP }}{{ $.Values.bmcEndpoint }}'
+    address: '{{ $.Values.bmcEndpoint }}'
     credentialsName: {{ printf "%s-%s" "bmc-credential" $host.name }}
     disableCertificateVerification: true
   bootMACAddress: '{{ $host.bootMACAddress }}'

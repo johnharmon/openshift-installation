@@ -12,11 +12,11 @@ metadata:
   name: {{ $clusterName }}
   namespace: {{ $clusterName }}
 spec:
-  platformType: BareMetal 
   clusterDeploymentRef:
     name: {{ $clusterName }}
   imageSetRef:
     name: {{ $imageSet }}
+  holdInstallation: false
   {{- if not ($.Values.sno | default false) }}
   apiVip: {{ $.Values.apiVip }}
   ingressVip: {{ $.Values.ingressVip }}
@@ -25,6 +25,7 @@ spec:
     controlPlaneAgents: {{ $controlPlaneCount }}
     workerAgents: {{ $workerCount }}
   networking:
+    networkType: OVNKubernetes
     clusterNetwork:
     - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
       hostPrefix: {{ $.Values.networking.clusterNetwork.hostPrefix }}
@@ -35,8 +36,17 @@ spec:
     - {{ $network }}
     {{ end }}
   {{- else }}
-  networking:
-    userManagedNetworking: true
+  networking: 
+    networkType: OVNKubernetes
+    clusterNetwork:
+    - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
+      hostPrefix: {{ $.Values.networking.clusterNetwork.hostPrefix }}
+    machineNetwork:
+    - cidr: {{ $.Values.networking.machineNetwork.cidr }}
+    serviceNetwork:
+    {{- range $_, $network := $.Values.serviceNetwork }}
+    - {{ $network }}
+    {{ end }}
   provisionRequirements:
     controlPlaneAgents: 1
   {{- end }}
