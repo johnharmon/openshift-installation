@@ -2,8 +2,7 @@
 clusterName: "example.com"
 baseDomain: "example.com"
 machinePrefixLength: 25
-mastersScheduable: true
-defaultGateway: "192.168.1.254"
+defaultGateway: ""
 openshiftVersion: '4.18.30'
 #sno: true
 pullSecret: ''

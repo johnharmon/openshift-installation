@@ -20,7 +20,7 @@ spec:
   {{- if not ($.Values.sno | default false) }}
   apiVip: {{ $.Values.apiVip }}
   ingressVip: {{ $.Values.ingressVip }}
-  mastersSchedulable: {{ $.Values.mastersSchedulable | default false }}
+  mastersSchedulable: false
   provisionRequirements:
     controlPlaneAgents: {{ $controlPlaneCount }}
     workerAgents: {{ $workerCount }}
@@ -36,7 +36,8 @@ spec:
     - {{ $network }}
     {{ end }}
   {{- else }}
-  networking: 
+  networking:
+    mastersSchedulable: true 
     networkType: OVNKubernetes
     clusterNetwork:
     - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
