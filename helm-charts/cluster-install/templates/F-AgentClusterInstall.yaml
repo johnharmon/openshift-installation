@@ -36,8 +36,8 @@ spec:
     - {{ $network }}
     {{ end }}
   {{- else }}
+  mastersScheduable: true
   networking:
-    mastersSchedulable: true 
     networkType: OVNKubernetes
     clusterNetwork:
     - cidr: {{ $.Values.networking.clusterNetwork.cidr }}
