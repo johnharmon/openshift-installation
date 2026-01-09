@@ -33,7 +33,7 @@
 | hosts.host.bootMACAddress | MAC Address String | None | The mac address that the host will attempt to boot from when installing 
 | hosts.host.interfaces | Key - List | None | The list of defined interfaces for this host 
 | hosts.host.interfaces.interface.macAddress | MAC Address String | None | The MAC address that this interface has 
-| hosts.host.interfaces.interface.name | String | '\{\{ \"eno\" \(toString \(add1 \$idx\)\)\) \}\}' | The name to give the interface with the associate mac address
+| hosts.host.interfaces.interface.name | String | '\{\{ \"eno\" \(toString \(add1 \$idx\)\) \}\}' | The name to give the interface with the associate mac address
 | hosts.host,.primaryMac | MAC Address String | None | The primary mac address for this host 
 | hosts.host.IP | IPv4 String | None | The ip to assign to this actual host once it is installed (must be an IP in the machine network
 
