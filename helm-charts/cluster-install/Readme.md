@@ -29,7 +29,7 @@
 | hosts.host.bmcUsername | String | None | The username for the BMC/IPMI login 
 | hosts.host.bmcPassword | String | None | The password for the BMC/IPMI login 
 | hosts.bmcIP | IPv4 String | None | The IP address for the BMC/IPMI interface
-| hosts.host.bmcEndpoint | URL Path String | None | The URL path after the IP that the BMC is accessible from 
+| hosts.host.bmcEndpoint | URL Path String | None | The URL path after the IP that the BMC is accessible from. This overrides the global bmcEndpoint for this host
 | hosts.host.bootMACAddress | MAC Address String | None | The mac address that the host will attempt to boot from when installing 
 | hosts.host.interfaces | Key - List | None | The list of defined interfaces for this host 
 | hosts.host.interfaces.interface.macAddress | MAC Address String | None | The MAC address that this interface has 
