@@ -12,14 +12,12 @@ metadata:
   name: {{ $clusterName }}
   namespace: {{ $clusterName }}
 spec:
-  {{- if not ($.Values.sno | default false) }}
-  platformType: BareMetal 
-  {{- end }}
   clusterDeploymentRef:
     name: {{ $clusterName }}
   imageSetRef:
     name: {{ $imageSet }}
-  {{- if not ($.Values.sno | default false) }}
+{{- if (gt $controlPlaneCount 1) }}
+  platformType: BareMetal 
   apiVip: {{ $.Values.apiVip }}
   ingressVip: {{ $.Values.ingressVip }}
   mastersSchedulable: {{ $.Values.mastersSchedulable | default false }}
@@ -33,13 +31,13 @@ spec:
     machineNetwork:
     - cidr: {{ $.Values.networking.machineNetwork.cidr }}
     serviceNetwork:
-    {{- range $_, $network := $.Values.serviceNetwork }}
+  {{- range $_, $network := $.Values.serviceNetwork }}
     - {{ $network }}
-    {{ end }}
-  {{- else }}
+  {{ end }}
+{{- else }}
   networking:
     userManagedNetworking: true
   provisionRequirements:
     controlPlaneAgents: 1
-  {{- end }}
+{{- end }}
   sshPublicKey: {{ $.Values.sshPublicKey | default "" }}

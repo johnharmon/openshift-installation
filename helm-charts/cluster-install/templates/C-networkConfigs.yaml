@@ -20,7 +20,7 @@ spec:
     dns-resolver:
       config:
         server:
-  {{- range $_, $dnsServer := $.Values.dnsServers }}
+  {{- range $_, $dnsServer := $.Values.networking.dnsServers }}
           - {{ $dnsServer }}
   {{- end }}
     interfaces:
@@ -46,7 +46,7 @@ spec:
       - ipv4:
           address:
             - ip: {{ $host.IP }}
-              prefix-length: {{ $.Values.machinePrefixLength }}
+              prefix-length: {{ $.Values.networking.machinePrefixLength }}
           dhcp: {{ index $.Values "useDHCP" | default false }}
           enabled: true
         ipv6:
@@ -60,7 +60,7 @@ spec:
     routes:
       config:
         - destination: 0.0.0.0/0
-          next-hop-address: {{ $.Values.defaultGateway }}
+          next-hop-address: {{ $.Values.networking.defaultGateway }}
           next-hop-interface: {{ $bondName }}
   {{- end }}
   interfaces:

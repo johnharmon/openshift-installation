@@ -4,6 +4,8 @@
 {{- $imageSet := printf "%s-%s" "openshift-image-set-" $.Values.openshiftVersion }}
 {{- range $_, $host := $.Values.hosts }}
 {{- $hostname := (printf "%s.%s" ($host.name| trimSuffix $.Values.baseDomain) $.Values.baseDomain) }}
+{{- $bmcEndpoint := ($host.bmcEndpoint | default $.Values.bmcEndpoint) }}
+{{- $bmcAddress := printf "%s%s%s" $.Values.bmcPrefix $host.bmcIP $bmcEndpoint }}
 ---
 apiVersion: metal3.io/v1alpha1
 kind: BareMetalHost
@@ -17,7 +19,7 @@ metadata:
 spec:
   automatedCleaningMode: disabled
   bmc:
-    address: '{{ $.Values.bmcPrefix }}://{{ $host.bmcIP }}{{ $host.bmcEndpoint }}'
+    address: '{{ $bmcAddress }}'
     credentialsName: {{ printf "%s-%s" "bmc-credential" $hostname }}
     disableCertificateVerification: true
   bootMACAddress: '{{ $host.bootMACAddress }}'

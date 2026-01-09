@@ -1,32 +1,29 @@
 # Example cluster config for the networking template
 clusterName: "test-cluster"
 baseDomain: "example.com"
-machinePrefixLength: 25
-defaultGateway: "<gateway-ip>"
 openshiftVersion: '4.19.17'
 apiVip: '10.0.0.1'
 ingressVip: '10.0.0.2'
-
 # optional, defaults to false everywhere
-sno: false
 pullSecret: ""
 bmcPrefix: 'redfish-virtualmedia'
 bmcEndpoint: '/redfish/v1/Systems/system.Embedded.1'
 cpuArch: 'x86_64'
 networking:
+  machinePrefixLength: 25
+  defaultGateway: "<gateway-ip>"
   clusterNetwork:
     cidr: 10.10.10.1/23
-    hostPrefix: 23
   machineNetwork:
     cidr: 192.168.86.1/24
   serviceNetwork:
     - 192.168.87.1/24
+  dnsServers:
+    - <dnsIP1>
+    - <dnsIP2>
+    - <dnsIP3>
 controlPlaneAgents: 3
 sshPublicKey: "test"
-dnsServers:
-  - <dnsIP1>
-  - <dnsIP2>
-  - <dnsIP3>
 hosts:
   - name: host-1
     bmcUsername: 'root'
