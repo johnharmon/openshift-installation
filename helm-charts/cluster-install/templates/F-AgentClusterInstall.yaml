@@ -12,7 +12,9 @@ metadata:
   name: {{ $clusterName }}
   namespace: {{ $clusterName }}
 spec:
+  {{- if not ($.Values.sno | default false) }}
   platformType: BareMetal 
+  {{- end }}
   clusterDeploymentRef:
     name: {{ $clusterName }}
   imageSetRef:

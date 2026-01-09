@@ -3,20 +3,22 @@
 {{- $bmcCredentialSecret := printf "bmc-credentials-" $clusterName }}
 {{- $imageSet := printf "%s-%s" "openshift-image-set-" $.Values.openshiftVersion }}
 {{- range $_, $host := $.Values.hosts }}
+{{- $hostname := (printf "%s.%s" ($host.name| trimSuffix $.Values.baseDomain) $.Values.baseDomain) }}
 ---
 apiVersion: metal3.io/v1alpha1
 kind: BareMetalHost
 metadata:
-  annotations:
-  name: {{ $host.name }}
+  name: {{ $hostname }}
   namespace: {{ $clusterName }}
+  annotations:
+    bmac.agent-install.openshift.io/hostname: {{ $hostname }}
   labels:
     infraenvs.agent-install.openshift.io: {{ $clusterName }}
 spec:
   automatedCleaningMode: disabled
   bmc:
-    address: '{{ $.Values.bmcPrefix }}://{{ $host.bmcIP }}{{ $.Values.bmcEndpoint }}'
-    credentialsName: {{ printf "%s-%s" "bmc-credential" $host.name }}
+    address: '{{ $.Values.bmcPrefix }}://{{ $host.bmcIP }}{{ $host.bmcEndpoint }}'
+    credentialsName: {{ printf "%s-%s" "bmc-credential" $hostname }}
     disableCertificateVerification: true
   bootMACAddress: '{{ $host.bootMACAddress }}'
   customDeploy:
