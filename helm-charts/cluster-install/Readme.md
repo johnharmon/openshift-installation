@@ -15,7 +15,6 @@
 | bmcPrefix | String | None | the prefix for the eventual BMC URL, currently only supports 'idrac-virtualmedia' or 'redfish-virtualmedia'
 | bmcEndpoint | String | None | the suffix/url path for the BMC. This value is defaulted to if hosts.host.bmcEndpoint is not supplied
 | cpuArch | String | 'x86_64' | The cpu architecture of the target cluster
-
 | networking | Key - Dictionary | N/A | The values under this key are all related to network configuration
 | networking.defaultGateway | IPv4 | None | The default gateway for the machine network 
 | networking.machinePrefixLength | integer | None | The length in bytes of the subnet prefix for the machine network in the cluster
