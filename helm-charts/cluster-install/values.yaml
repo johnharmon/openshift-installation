@@ -51,5 +51,3 @@ hosts:
     useBond: true
     primaryMac: ""
     IP: <host-n-ip>
-
-
